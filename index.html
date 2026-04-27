@@ -15,186 +15,180 @@
         --gold: #b08d57;
     }
 
-    body {
-        margin: 0; font-family: 'Lato', sans-serif; background: var(--bg);
-        color: var(--text); scroll-behavior: smooth; line-height: 1.6; overflow-x: hidden;
-    }
+    body { margin: 0; font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); scroll-behavior: smooth; line-height: 1.6; overflow-x: hidden; }
 
-    /* --- NAVIGATION & WEATHER --- */
-    header {
-        background: white; padding: 15px 8%; box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        position: sticky; top: 0; z-index: 1000;
-    }
-
+    /* --- NAVIGATION --- */
+    header { background: white; padding: 15px 8%; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
     nav { display: flex; justify-content: space-between; align-items: center; }
-
     .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
+    .flag-icon { width: 35px; height: 22px; border-radius: 3px; border: 1px solid #ddd; background: linear-gradient(to right, #002395 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ED2939 66.6%); }
+    .nav-right { display: flex; align-items: center; gap: 15px; }
+    .weather-widget { background: #f0f2f5; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
 
-    .flag-icon {
-        width: 35px; height: 22px; border-radius: 3px; border: 1px solid #ddd;
-        background: linear-gradient(to right, #002395 33.3%, #ffffff 33.3%, #ffffff 66.6%, #ED2939 66.6%);
-    }
+    /* Audio System UI */
+    .audio-btn { background: var(--accent); color: white; border: none; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.75rem; transition: 0.3s; }
+    .stop-btn { background: #555; margin-left: 5px; }
+    .reading-highlight { border-left: 5px solid var(--accent) !important; background: #fff3cd !important; transform: scale(1.02); transition: 0.4s; }
 
-    .weather-widget {
-        background: #f0f2f5; padding: 5px 15px; border-radius: 20px;
-        font-size: 0.85rem; font-weight: 700; color: var(--primary);
-    }
-
+    #google_translate_element { margin-left: 5px; }
+    .goog-te-gadget-simple { background-color: #f0f2f5 !important; border: 1px solid #ddd !important; padding: 5px 10px !important; border-radius: 20px !important; font-family: 'Lato', sans-serif !important; cursor: pointer; }
+    .goog-te-gadget-icon { display: none !important; }
     nav div a { text-decoration: none; margin-left: 20px; color: #555; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
     nav div a:hover { color: var(--accent); }
 
-    /* --- HERO SECTION --- */
-    .hero {
-        text-align: center; padding: 140px 20px; color: white;
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1500&q=80');
-        background-size: cover; background-position: center;
-    }
-
+    /* --- HERO --- */
+    .hero { text-align: center; padding: 140px 20px; color: white; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; }
     .hero h2 { font-family: 'Great Vibes', cursive; font-size: 5.5rem; margin: 0; color: #f1c40f; }
 
-    /* --- CONTENT CONTAINERS --- */
+    /* --- CONTENT --- */
     .container { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-
-    .city {
-        background: white; margin-bottom: 100px; padding: 50px; border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 6px solid var(--primary);
-        opacity: 0; transform: translateY(30px); transition: 0.8s ease;
-    }
-
+    .city { background: white; margin-bottom: 100px; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 6px solid var(--primary); opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
     .city.visible { opacity: 1; transform: translateY(0); }
-
     .city h2 { font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: var(--gold); margin: 0; line-height: 1; }
-
     .city-caption { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--primary); margin-bottom: 30px; display: block; }
 
-    /* --- GALLERY --- */
     .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-
     .gallery-item { position: relative; background: #f0f0f0; border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s; }
-    .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-
     .gallery img { width: 100%; height: 350px; object-fit: cover; display: block; }
+    .img-label { position: absolute; bottom: 15px; left: 15px; background: rgba(0, 35, 149, 0.9); color: white; padding: 5px 12px; font-size: 0.75rem; text-transform: uppercase; border-radius: 4px; }
 
-    .img-label {
-        position: absolute; bottom: 15px; left: 15px; background: rgba(0, 35, 149, 0.9);
-        color: white; padding: 5px 12px; font-size: 0.75rem; text-transform: uppercase; border-radius: 4px;
-    }
-
-    /* --- INFO BOXES --- */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
     .info-box { background: #f9f9f9; padding: 25px; border-radius: 10px; border-left: 4px solid var(--gold); }
     .info-box strong { display: block; color: var(--accent); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
 
-    /* --- FLASHCARD/MODAL STYLE --- */
-    .flashcard-overlay {
-        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.85); z-index: 3000; justify-content: center; align-items: center;
-    }
+    /* --- MODERN CHATBOT --- */
+    #chat-circle { 
+    position: fixed; 
+    bottom: 100px; 
+    right: 25px; 
+    width: 65px; 
+    height: 65px; 
+    background: white; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1500; 
+    border: 2px solid var(--primary); /* Use blue or red so the circle has a clear edge */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+    cursor: pointer; 
+    overflow: hidden; /* This keeps the robot image round */
+}
+    #chat-circle:hover { transform: scale(1.1); }
+    #chat-circle::after { 
+    content: ''; 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%; 
+    border: 2px solid var(--accent); 
+    animation: pulse 2s infinite; 
+    z-index: -1; /* This puts the pulse BEHIND the robot image */
+}
+    @keyframes pulse { 0% {transform: scale(1); opacity: 1;} 100% {transform: scale(1.5); opacity: 0;} }
 
-    .flashcard {
-        background: white; padding: 35px; border-radius: 20px; max-width: 420px; width: 90%;
-        text-align: center; border-bottom: 8px solid var(--gold); transform: scale(0.8); transition: 0.3s;
-    }
+    #chat-box { display: none; position: fixed; bottom: 180px; right: 25px; width: 320px; height: 460px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border-radius: 20px; flex-direction: column; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 1600; overflow: hidden; border: 1px solid #eee; }
+    .chat-header { background: linear-gradient(to right, var(--primary), #0044ff); color: white; padding: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    .chat-logs { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth; }
+    .chat-msg { padding: 10px 14px; border-radius: 15px; max-width: 85%; font-size: 0.85rem; line-height: 1.4; }
+    .msg-bot { background: #f0f2f5; align-self: flex-start; color: #333; border-bottom-left-radius: 2px; }
+    .msg-user { background: var(--accent); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+    .chat-input { padding: 12px; background: white; border-top: 1px solid #eee; display: flex; gap: 8px; align-items: center; }
+    .chat-input input { flex: 1; border: 1px solid #eee; outline: none; padding: 10px 15px; border-radius: 20px; font-size: 0.85rem; }
 
+    /* --- OVERLAYS --- */
+    #map-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); z-index: 2000; flex-direction: column; align-items: center; justify-content: center; }
+    #passport-trigger { position: fixed; right: 25px; bottom: 25px; width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 1500; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    #passport-panel { position: fixed; right: -300px; top: 0; width: 250px; height: 100%; background: white; z-index: 1600; padding: 40px 20px; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
+    #passport-panel.open { right: 0; }
+    .stamp { display: flex; align-items: center; gap: 12px; padding: 12px; margin-bottom: 10px; background: #eee; border-radius: 8px; filter: grayscale(1); opacity: 0.5; transition: 0.5s; }
+    .stamp.collected { filter: grayscale(0); opacity: 1; background: #e3f2fd; border: 1px solid var(--primary); }
+    .flashcard-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; justify-content: center; align-items: center; }
+    .flashcard { background: white; padding: 35px; border-radius: 20px; max-width: 420px; text-align: center; border-bottom: 8px solid var(--gold); transform: scale(0.8); transition: 0.3s; }
     .flashcard.active { transform: scale(1); }
 
-    /* --- MAP & PASSPORT UI --- */
-    #map-overlay {
-        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(255,255,255,0.98); z-index: 2000; flex-direction: column; align-items: center; justify-content: center;
-    }
-
-    #passport-trigger {
-        position: fixed; right: 25px; bottom: 25px; width: 60px; height: 60px;
-        background: var(--primary); border-radius: 50%; display: flex; align-items: center;
-        justify-content: center; color: white; cursor: pointer; z-index: 1500; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    #passport-panel {
-        position: fixed; right: -300px; top: 0; width: 250px; height: 100%;
-        background: white; z-index: 1600; padding: 40px 20px; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    }
-
-    #passport-panel.open { right: 0; }
-
-    .stamp {
-        display: flex; align-items: center; gap: 12px; padding: 12px; margin-bottom: 10px;
-        background: #eee; border-radius: 8px; filter: grayscale(1); opacity: 0.5; transition: 0.5s;
-    }
-
-    .stamp.collected { filter: grayscale(0); opacity: 1; background: #e3f2fd; border: 1px solid var(--primary); }
-
-    /* --- FOOTER & CREDITS --- */
     .credits-section { background: #f0f2f5; padding: 60px 20px; border-radius: 15px; margin-top: 50px; text-align: center; border: 1px solid #ddd; }
     .credits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 800px; margin: 0 auto; text-align: left; }
-
     footer { text-align: center; padding: 40px; background: #1a1a1a; color: #888; }
-
-    @media (max-width: 800px) { .gallery, .info-grid, .credits-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 
 <body>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en', 
+    includedLanguages: 'fr,en',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false,
+    multilanguagePage: true
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <div id="map-overlay">
     <h2 style="font-family: 'Playfair Display'; color: var(--primary); font-size: 2.5rem; margin-bottom: 20px;">Nos Villes Partenaires</h2>
-    
-    <img src="/images/france-map.jpg" alt="Map highlighting Lyon, Nice, Marseille, and Bordeaux" style="max-width: 90%; max-height: 70vh; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-    
-    <p style="font-size: 1.1rem; color: #555; margin-top: 15px;">Discovering the soul of the Republic beyond the capital.</p>
-    
-    <button onclick="toggleMap()" style="margin-top:25px; padding:10px 30px; background:var(--accent); color:white; border:none; border-radius:5px; cursor:pointer; font-weight:700;">Fermer la Carte</button>
+    <img src="./images/france-map.jpg" alt="Map" style="max-width: 90%; max-height: 70vh; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+    <button onclick="toggleMap()" style="margin-top:25px; padding:10px 30px; background:var(--accent); color:white; border:none; border-radius:5px; cursor:pointer; font-weight:700;">Fermer</button>
 </div>
 
 <div class="flashcard-overlay" id="flashcard-overlay" onclick="closeFlashcard()">
     <div class="flashcard" id="flashcard">
-        <h3 id="card-title" style="font-family: 'Playfair Display'; color: var(--primary);">Title</h3>
-        <p id="card-fact">Fact detail...</p>
+        <h3 id="card-title" style="font-family: 'Playfair Display'; color: var(--primary);"></h3>
+        <p id="card-fact"></p>
         <p style="font-size: 0.8rem; color: #888; margin-top: 20px;">(Click anywhere to close)</p>
     </div>
 </div>
 
 <header>
     <nav>
-        <div class="logo" onclick="toggleMap()" title="View France Map">
+        <div class="logo" onclick="toggleMap()">
             <div class="flag-icon"></div>
             <span>FRANCE TOURISME</span>
         </div>
-        <div class="weather-widget" id="weather">🇫🇷 Paris: --:-- | 22°C</div>
+        <div class="nav-right">
+            <div class="weather-widget" id="weather">🇫🇷 Paris: --:-- | 22°C</div>
+            <button class="audio-btn" onclick="startAudioTour()">🔊 Play Tour</button>
+            <button class="audio-btn stop-btn" onclick="stopAudioTour()">⏹</button>
+            <!-- ✅ LANGUAGE TOGGLE BUTTON -->
+<button onclick="toggleLanguage()" id="lang-toggle"
+    style="padding:6px 12px; border:none; border-radius:20px; cursor:pointer; font-weight:700;">
+    FR
+</button>
+
+<!-- ✅ HIDDEN GOOGLE TRANSLATE -->
+<div id="google_translate_element" style="display:none;"></div>
+        </div>
         <div>
-            <a href="#lyon">Lyon</a>
-            <a href="#nice">Nice</a>
-            <a href="#marseille">Marseille</a>
-            <a href="#bordeaux">Bordeaux</a>
+            <a href="#lyon">Lyon</a> <a href="#nice">Nice</a> <a href="#marseille">Marseille</a> <a href="#bordeaux">Bordeaux</a>
         </div>
     </nav>
 </header>
 
 <section class="hero">
     <h2>France: Au-delà de Paris</h2>
-    <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem;">Discovering the soul of the Republic beyond the capital</p>
+    <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.4rem;">Discovering the soul of the Republic beyond the capital</p>
 </section>
 
 <div class="container">
-
     <div class="city" id="lyon">
         <h2>Lyon</h2>
         <span class="city-caption">The Gastronomic Capital of France</span>
         <div class="gallery">
-            <div class="gallery-item" onclick="showFlashcard('Basilica of Notre-Dame de Fourvière', 'Built: 1872-1884. <br><br> • It was built with private funds as a symbol of religious devotion.<br> • It sits atop the hill of Fourvière overlooking the entire city.', 'lyon')">
-                <img src="images/lyon-landmark.jpg" alt="Fourvière Hill">
-                <div class="img-label">Landmark: Fourvière Hill</div>
+            <div class="gallery-item" onclick="showFlashcard('Notre-Dame de Fourvière', 'Built atop the hill overlooking the city.', 'lyon')">
+                <img src="images/lyon-landmark.jpg" alt="Fourviere"><div class="img-label">Landmark: Fourvière Hill</div>
             </div>
-            <div class="gallery-item" onclick="showFlashcard('Le Coq au Vin', 'Major Ingredients: Rooster (chicken), Red wine (Burgundy), mushrooms, lardons.<br><br> • A staple dish in traditional bouchons.<br> • Symbolizes the rustic culinary heritage of France.', 'lyon')">
-                <img src="images/lyon-food.jpg" alt="Coq au Vin">
-                <div class="img-label">Cuisine: Le Coq au Vin</div>
+            <div class="gallery-item" onclick="showFlashcard('Le Coq au Vin', 'A rustic culinary staple of France.', 'lyon')">
+                <img src="images/lyon-food.jpg" alt="Food"><div class="img-label">Cuisine: Le Coq au Vin</div>
             </div>
         </div>
         <div class="info-grid">
-            <div class="info-box"><strong>🏛️ History</strong> Lyon was founded by the Romans in 43 BC and became one of the most important cities in ancient Gaul. It later developed into a major center for silk production during the Renaissance.</div>
-            <div class="info-box"><strong>🎭 Culture</strong> Lyon is known as the cultural heart of France, with museums, theatres, and historical architecture. The city is famous for its \"traboules,\" unique hidden passageways.</div>
-            <div class="info-box"><strong>🍽️ Cuisine</strong> Lyon is called the gastronomic capital of France. Popular dishes include Coq au Vin and Quenelles, served in traditional bouchons.</div>
-            <div class="info-box"><strong>📍 Attractions</strong> Key must-visit spots include the Basilica of Notre-Dame de Fourvière, the cobblestone streets of Old Lyon, and the vast Parc de la Tête d\'Or.</div>
+            <div class="info-box" data-fr="Lyon a été fondée par les Romains en 43 av. J.-C. et est devenue l'une des villes les plus importantes de l'ancienne Gaule." data-en="Lyon was founded by the Romans in 43 BC and became one of the most important cities in ancient Gaul. It later developed into a major center for silk production during the Renaissance."><strong>🏛️ History</strong> Lyon was founded by the Romans in 43 BC and became one of the most important cities in ancient Gaul. It later developed into a major center for silk production during the Renaissance.</div>
+            <div class="info-box" data-fr="Lyon est connue comme le cœur culturel de la France, avec des musées, des théâtres et une architecture historique." data-en="Lyon is known as the cultural heart of France, with museums, theatres, and historical architecture. The city is famous for its 'traboules,' unique hidden passageways."><strong>🎭 Culture</strong> Lyon is known as the cultural heart of France, with museums, theatres, and historical architecture. The city is famous for its "traboules," unique hidden passageways.</div>
+            <div class="info-box" data-fr="Lyon est appelée la capitale gastronomique de la France. Les plats populaires incluent le Coq au Vin et les Quenelles." data-en="Lyon is called the gastronomic capital of France. Popular dishes include Coq au Vin and Quenelles, served in traditional bouchons."><strong>🍽️ Cuisine</strong> Lyon is called the gastronomic capital of France. Popular dishes include Coq au Vin and Quenelles, served in traditional bouchons.</div>
+            <div class="info-box" data-fr="Les sites incontournables incluent la basilique Notre-Dame de Fourvière et le Vieux Lyon." data-en="Key must-visit spots include the Basilica of Notre-Dame de Fourvière, the cobblestone streets of Old Lyon, and the vast Parc de la Tête d'Or."><strong>📍 Attractions</strong> Key must-visit spots include the Basilica of Notre-Dame de Fourvière, the cobblestone streets of Old Lyon, and the vast Parc de la Tête d'Or.</div>
         </div>
     </div>
 
@@ -202,20 +196,18 @@
         <h2>Nice</h2>
         <span class="city-caption">Jewel of the French Riviera</span>
         <div class="gallery">
-            <div class="gallery-item" onclick="showFlashcard('Promenade des Anglais', 'Built: 1820s. <br><br> • Named after the English aristocrats who funded its construction.<br> • It is one of the most famous seaside walks in the world.', 'nice')">
-                <img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=800" alt="Nice Landmark">
-                <div class="img-label">Landmark: Promenade des Anglais</div>
+            <div class="gallery-item" onclick="showFlashcard('Promenade des Anglais', 'Famous seaside walk.', 'nice')">
+                <img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=800" alt="Nice"><div class="img-label">Landmark: Promenade des Anglais</div>
             </div>
-            <div class="gallery-item" onclick="showFlashcard('Salade Niçoise', 'Major Ingredients: Hard-boiled eggs, tomatoes, Niçoise olives, and anchovies or tuna.<br><br> • This salad is a classic example of Mediterranean fresh flavors.', 'nice')">
-                <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=800" alt="Salade Nicoise">
-                <div class="img-label">Cuisine: Salade Niçoise</div>
+            <div class="gallery-item" onclick="showFlashcard('Salade Niçoise', 'Mediterranean fresh flavors.', 'nice')">
+                <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=800" alt="Salad"><div class="img-label">Cuisine: Salade Niçoise</div>
             </div>
         </div>
         <div class="info-grid">
-            <div class="info-box"><strong>🏛️ History</strong> Nice was part of Italy until 1860, after which it became a part of France. Its strategic location made it an important Mediterranean trade center.</div>
-            <div class="info-box"><strong>🎭 Culture</strong> Nice reflects a vibrant Mediterranean lifestyle with art, music, and festivals. It is world-famous for its connection to artists like Henri Matisse.</div>
-            <div class="info-box"><strong>🍽️ Cuisine</strong> The cuisine is fresh and Mediterranean-based. Famous dishes include Salade Niçoise, Ratatouille, and street food like Socca.</div>
-            <div class="info-box"><strong>📍 Attractions</strong> Famous sites include the Promenade des Anglais, the historic Old Town (Vieux Nice), and the Marc Chagall National Museum.</div>
+            <div class="info-box" data-fr="Nice faisait partie de l'Italie jusqu'en 1860." data-en="Nice was part of Italy until 1860, after which it became a part of France. Its strategic location made it an important Mediterranean trade center."><strong>🏛️ History</strong> Nice was part of Italy until 1860, after which it became a part of France. Its strategic location made it an important Mediterranean trade center.</div>
+            <div class="info-box" data-fr="Nice reflète un mode de vie méditerranéen dynamique." data-en="Nice reflects a vibrant Mediterranean lifestyle with art, music, and festivals. It is world-famous for its connection to artists like Henri Matisse."><strong>🎭 Culture</strong> Nice reflects a vibrant Mediterranean lifestyle with art, music, and festivals. It is world-famous for its connection to artists like Henri Matisse.</div>
+            <div class="info-box" data-fr="La cuisine est fraîche et à base de produits méditerranéens." data-en="The cuisine is fresh and Mediterranean-based. Famous dishes include Salade Niçoise, Ratatouille, and street food like Socca."><strong>🍽️ Cuisine</strong> The cuisine is fresh and Mediterranean-based. Famous dishes include Salade Niçoise, Ratatouille, and street food like Socca.</div>
+            <div class="info-box" data-fr="Les sites célèbres incluent la Promenade des Anglais et la Vieille Ville." data-en="Famous sites include the Promenade des Anglais, the historic Old Town (Vieux Nice), and the Marc Chagall National Museum."><strong>📍 Attractions</strong> Famous sites include the Promenade des Anglais, the historic Old Town (Vieux Nice), and the Marc Chagall National Museum.</div>
         </div>
     </div>
 
@@ -223,20 +215,18 @@
         <h2>Marseille</h2>
         <span class="city-caption">The Mediterranean Gateway</span>
         <div class="gallery">
-            <div class="gallery-item" onclick="showFlashcard('The Old Port (Vieux-Port)', 'Founded: 600 BC. <br><br> • It is the natural harbor around which the city was built by the Phocaeans.<br> • It remains the historical heart of the city.', 'marseille')">
-                <img src="images/marseille-landmark.jpg" alt="Marseille Port">
-                <div class="img-label">Landmark: The Old Port</div>
+            <div class="gallery-item" onclick="showFlashcard('The Old Port', 'Historical heart founded in 600 BC.', 'marseille')">
+                <img src="images/marseille-landmark.jpg" alt="Marseille"><div class="img-label">Landmark: The Old Port</div>
             </div>
-            <div class="gallery-item" onclick="showFlashcard('Bouillabaisse', 'Major Ingredients: A variety of local fish, shellfish, saffron, fennel, and garlic.<br><br> • Originally made by fishermen using the fish they couldn\'t sell.', 'marseille')">
-                <img src="images/marseille-food.jpg" alt="Bouillabaisse">
-                <div class="img-label">Cuisine: Bouillabaisse</div>
+            <div class="gallery-item" onclick="showFlashcard('Bouillabaisse', 'Legendary local seafood stew.', 'marseille')">
+                <img src="images/marseille-food.jpg" alt="Food"><div class="img-label">Cuisine: Bouillabaisse</div>
             </div>
         </div>
         <div class="info-grid">
-            <div class="info-box"><strong>🏛️ History</strong> Marseille is the oldest city in France, founded around 600 BC. It has always been a major port city connecting Europe and Africa.</div>
-            <div class="info-box"><strong>🎭 Culture</strong> Marseille is known for its diverse multicultural population. The city blends traditional French culture with strong Mediterranean influences.</div>
-            <div class="info-box"><strong>🍽️ Cuisine</strong> Famous for seafood dishes, especially Bouillabaisse. Olive oil, fresh herbs, and the daily catch are essential components.</div>
-            <div class="info-box"><strong>📍 Attractions</strong> Key landmarks include the Old Port, the stunning Notre-Dame de la Garde, and the turquoise waters of Calanques National Park.</div>
+            <div class="info-box" data-fr="Marseille est la plus ancienne ville de France, fondée vers 600 av. J.-C." data-en="Marseille is the oldest city in France, founded around 600 BC. It has always been a major port city connecting Europe and Africa."><strong>🏛️ History</strong> Marseille is the oldest city in France, founded around 600 BC. It has always been a major port city connecting Europe and Africa.</div>
+            <div class="info-box" data-fr="Marseille est connue pour sa population multiculturelle diversifiée." data-en="Marseille is known for its diverse multicultural population. The city blends traditional French culture with strong Mediterranean influences."><strong>🎭 Culture</strong> Marseille is known for its diverse multicultural population. The city blends traditional French culture with strong Mediterranean influences.</div>
+            <div class="info-box" data-fr="Célèbre pour les plats de fruits de mer, en particulier la Bouillabaisse." data-en="Famous for seafood dishes, especially Bouillabaisse. Olive oil, fresh herbs, and the daily catch are essential components."><strong>🍽️ Cuisine</strong> Famous for seafood dishes, especially Bouillabaisse. Olive oil, fresh herbs, and the daily catch are essential components.</div>
+            <div class="info-box" data-fr="Les sites clés incluent le Vieux-Port et Notre-Dame de la Garde." data-en="Key landmarks include the Old Port, the stunning Notre-Dame de la Garde, and the turquoise waters of Calanques National Park."><strong>📍 Attractions</strong> Key landmarks include the Old Port, the stunning Notre-Dame de la Garde, and the turquoise waters of Calanques National Park.</div>
         </div>
     </div>
 
@@ -244,118 +234,185 @@
         <h2>Bordeaux</h2>
         <span class="city-caption">City of Art and Elegance</span>
         <div class="gallery">
-            <div class="gallery-item" onclick="showFlashcard('Place de la Bourse', 'Built: 1730-1775. <br><br> • One of the most representative works of 18th-century French architecture.<br> • Home to the world\'s largest reflecting pool.', 'bordeaux')">
-                <img src="images/bordeaux-landmark.jpg" alt="Bordeaux Place">
-                <div class="img-label">Landmark: Place de la Bourse</div>
+            <div class="gallery-item" onclick="showFlashcard('Place de la Bourse', 'World\'s largest reflecting pool.', 'bordeaux')">
+                <img src="images/bordeaux-landmark.jpg" alt="Bordeaux"><div class="img-label">Landmark: Place de la Bourse</div>
             </div>
-            <div class="gallery-item" onclick="showFlashcard('Canelés', 'Major Ingredients: Flour, egg yolks, sugar, milk, rum, and vanilla.<br><br> • These pastries have a soft custard center and a caramelized crust.', 'bordeaux')">
-                <img src="images/bordeaux-food.jpg" alt="Canelés">
-                <div class="img-label">Cuisine: Canelés</div>
+            <div class="gallery-item" onclick="showFlashcard('Canelés', 'Pastries with a soft custard center.', 'bordeaux')">
+                <img src="images/bordeaux-food.jpg" alt="Pastry"><div class="img-label">Cuisine: Canelés</div>
             </div>
         </div>
         <div class="info-grid">
-            <div class="info-box"><strong>🏛️ History</strong> Bordeaux has a long history as a major trading port. Wealth from maritime commerce funded its beautiful limestone architecture.</div>
-            <div class="info-box"><strong>🎭 Culture</strong> Bordeaux is a UNESCO World Heritage city, perfectly reflecting classical French culture and sophisticated urban design.</div>
-            <div class="info-box"><strong>🍽️ Cuisine</strong> Bordeaux is world-famous for its historic vineyards. Local specialties include Canelé pastries and Entrecôte à la Bordelaise.</div>
-            <div class="info-box"><strong>📍 Attractions</strong> Don\'t miss the Place de la Bourse, the Bordeaux Cathedral, and the futuristic Wine Museum (La Cité du Vin).</div>
+            <div class="info-box" data-fr="Bordeaux a une longue histoire en tant que port de commerce majeur." data-en="Bordeaux has a long history as a major trading port. Wealth from maritime commerce funded its beautiful limestone architecture."><strong>🏛️ History</strong> Bordeaux has a long history as a major trading port. Wealth from maritime commerce funded its beautiful limestone architecture.</div>
+            <div class="info-box" data-fr="Bordeaux est une ville du patrimoine mondial de l'UNESCO." data-en="Bordeaux is a UNESCO World Heritage city, perfectly reflecting classical French culture and sophisticated urban design."><strong>🎭 Culture</strong> Bordeaux is a UNESCO World Heritage city, perfectly reflecting classical French culture and sophisticated urban design.</div>
+            <div class="info-box" data-fr="Bordeaux est mondialement célèbre pour ses vignobles historiques." data-en="Bordeaux is world-famous for its historic vineyards. Local specialties include Canelé pastries and Entrecôte à la Bordelaise."><strong>🍽️ Cuisine</strong> Bordeaux is world-famous for its historic vineyards. Local specialties include Canelé pastries and Entrecôte à la Bordelaise.</div>
+            <div class="info-box" data-fr="Ne manquez pas la Place de la Bourse et la Cité du Vin." data-en="Don't miss the Place de la Bourse, the Bordeaux Cathedral, and the futuristic Wine Museum (La Cité du Vin)."><strong>📍 Attractions</strong> Don't miss the Place de la Bourse, the Bordeaux Cathedral, and the futuristic Wine Museum (La Cité du Vin).</div>
         </div>
     </div>
 
     <div class="credits-section">
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary); margin-bottom: 30px;">Projet de Recherche</h3>
+        <h3 style="font-family: 'Playfair Display'; font-size: 2rem; color: var(--primary);">Projet de Recherche</h3>
         <div class="credits-grid">
             <div class="credit-item">
                 <h4>Équipe du Projet</h4>
-                <p>Kabir Khan (RA2511033010001)</p>
-                <p>Nandakishore (RA2511033010029)</p>
-                <p>Nirbhay Kaushik (RA2511033010054)</p>
-                <p>Sujoy Behera (RA2511033010057)</p>
+                <p>Kabir Khan (RA2511033010001)</p><p>Nandakishore (RA2511033010029)</p>
+                <p>Nirbhay Kaushik (RA2511033010054)</p><p>Sujoy Behera (RA2511033010057)</p>
             </div>
             <div class="credit-item">
                 <h4>Sous la direction de</h4>
-                <p>Ms. Manju Rekha</p>
-                <p>Department of French, SRM IST</p>
+                <p>Ms. Manju Rekha</p><p>Department of French, SRM IST</p>
             </div>
         </div>
     </div>
 </div>
 
-<div id="passport-trigger" onclick="togglePassport()" title="My Virtual Passport">🛂</div>
-<div id="passport-panel">
-    <h3 style="font-family: 'Playfair Display'; border-bottom: 2px solid var(--gold); padding-bottom: 10px;">Mon Passeport</h3>
-    <div id="stamp-lyon" class="stamp"><span>🦁</span> Lyon Visited</div>
-    <div id="stamp-nice" class="stamp"><span>🏖️</span> Nice Visited</div>
-    <div id="stamp-marseille" class="stamp"><span>⚓</span> Marseille Visited</div>
-    <div id="stamp-bordeaux" class="stamp"><span>🍷</span> Bordeaux Visited</div>
-    <p style="font-size: 0.7rem; color: #888; margin-top: 15px;">Unlock stamps by clicking images in the galleries!</p>
-    <button onclick="togglePassport()" style="margin-top: 20px; width: 100%; padding: 8px; cursor: pointer;">Close</button>
+<div id="chat-circle" onclick="toggleChat()">
+    <img src="images/bot-icon.jpg" alt="Bot Guide" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+</div>
+<div id="chat-box">
+    <div class="chat-header"><span>Concierge AI</span><span style="cursor:pointer" onclick="toggleChat()">×</span></div>
+    <div class="chat-logs" id="chat-logs"><div class="chat-msg msg-bot">Bonjour! I'm your guide. Ask me about food, the best time to visit, or landmarks in Lyon, Nice, Marseille, or Bordeaux!</div></div>
+    <div class="chat-input">
+        <input type="text" id="chat-in" placeholder="Ask about Nice food or Lyon time..." onkeypress="if(event.key==='Enter')sendChat()">
+        <button onclick="sendChat()" style="background:var(--primary); color:white; border:none; border-radius:50%; width:30px; height:30px; cursor:pointer;">➔</button>
+    </div>
 </div>
 
-<footer>
-    <p>SRM Institute of Science and Technology | French PBL Submission © 2026</p>
-</footer>
+<div id="passport-trigger" onclick="togglePassport()">🛂</div>
+<div id="passport-panel">
+    <h3 style="font-family: 'Playfair Display'; border-bottom: 2px solid var(--gold);">Mon Passeport</h3>
+    <div id="stamp-lyon" class="stamp">🦁 Lyon</div><div id="stamp-nice" class="stamp">🏖️ Nice</div>
+    <div id="stamp-marseille" class="stamp">⚓ Marseille</div><div id="stamp-bordeaux" class="stamp">🍷 Bordeaux</div>
+    <button onclick="togglePassport()" style="margin-top:20px; width:100%; cursor:pointer;">Close</button>
+</div>
+
+<footer><p>SRM IST | French PBL Submission © 2026</p></footer>
 
 <script>
-    // 1. Precise Paris Time & Weather Logic
+    let synth = window.speechSynthesis; let isReading = false;
+
+    // --- AUDIO SYSTEM ---
+    function startAudioTour() {
+        if (isReading) return; isReading = true;
+        const boxes = document.querySelectorAll('.info-box'); let index = 0;
+        function readNext() {
+            if (index >= boxes.length || !isReading) { isReading = false; return; }
+            const box = boxes[index]; const fr = box.getAttribute('data-fr'); const en = box.getAttribute('data-en');
+            box.classList.add('reading-highlight'); box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            let utterFR = new SpeechSynthesisUtterance(fr); utterFR.lang = 'fr-FR'; utterFR.rate = 0.7;
+            utterFR.onend = () => {
+                setTimeout(() => {
+                    if(!isReading) return;
+                    let utterEN = new SpeechSynthesisUtterance("In English: " + en); utterEN.lang = 'en-US';
+                    utterEN.onend = () => { box.classList.remove('reading-highlight'); index++; setTimeout(readNext, 600); };
+                    synth.speak(utterEN);
+                }, 1000);
+            };
+            synth.speak(utterFR);
+        }
+        readNext();
+    }
+    function stopAudioTour() { isReading = false; synth.cancel(); document.querySelectorAll('.info-box').forEach(b => b.classList.remove('reading-highlight')); }
+
+    // --- SMART CHATBOT LOGIC ---
+    function sendChat() {
+        const i = document.getElementById('chat-in'); const l = document.getElementById('chat-logs');
+        const userVal = i.value.trim();
+        if(!userVal) return;
+        
+        const uDiv = document.createElement('div'); uDiv.className='chat-msg msg-user'; uDiv.innerText=userVal;
+        l.appendChild(uDiv);
+        const q = userVal.toLowerCase(); i.value='';
+        l.scrollTop = l.scrollHeight;
+
+        setTimeout(() => {
+            const bDiv = document.createElement('div'); bDiv.className='chat-msg msg-bot';
+            
+            // KEYWORD DETECTION
+            const hasLyon = q.includes("lyon");
+            const hasNice = q.includes("nice");
+            const hasMarseille = q.includes("marseille");
+            const hasBordeaux = q.includes("bordeaux");
+            const isTime = q.includes("time") || q.includes("when") || q.includes("month") || q.includes("period");
+            const isFood = q.includes("food") || q.includes("cuisine") || q.includes("eat") || q.includes("dish");
+            const isPlaces = q.includes("place") || q.includes("landmark") || q.includes("visit") || q.includes("see");
+
+            if (hasLyon) {
+                if (isTime) bDiv.innerText = "The best time to visit Lyon is in June or September to enjoy mild weather and festivals!";
+                else if (isFood) bDiv.innerText = "Lyon is the world capital of gastronomy! You must try 'Coq au Vin' and 'Quenelles'.";
+                else if (isPlaces) bDiv.innerText = "Don't miss the Basilica of Fourvière and the hidden traboules of the Old Town.";
+                else bDiv.innerText = "Lyon is a beautiful historic city. Would you like to know about its food or landmarks?";
+            } else if (hasNice) {
+                if (isTime) bDiv.innerText = "The best time for Nice is May to September for perfect Mediterranean beach weather!";
+                else if (isFood) bDiv.innerText = "In Nice, try 'Salade Niçoise' and 'Socca' (a savory chickpea pancake).";
+                else if (isPlaces) bDiv.innerText = "Walk along the Promenade des Anglais and visit the Marc Chagall Museum.";
+                else bDiv.innerText = "Nice is the jewel of the French Riviera. Ask me about its weather or cuisine!";
+            } else if (hasMarseille) {
+                if (isTime) bDiv.innerText = "Late spring (May-June) is ideal for Marseille to avoid the intense summer heat.";
+                else if (isFood) bDiv.innerText = "The signature dish of Marseille is 'Bouillabaisse', a rich seafood stew.";
+                else if (isPlaces) bDiv.innerText = "Visit the Old Port (Vieux-Port) and the stunning Notre-Dame de la Garde.";
+                else bDiv.innerText = "Marseille is the oldest city in France. Ask me about the Old Port!";
+            } else if (hasBordeaux) {
+                if (isTime) bDiv.innerText = "Bordeaux is lovely in late spring or during the harvest in September and October.";
+                else if (isFood) bDiv.innerText = "Try 'Canelés'—caramelized pastries with a custard heart—and Entrecôte à la Bordelaise.";
+                else if (isPlaces) bDiv.innerText = "The Place de la Bourse and its reflecting pool (Miroir d'eau) are essential stops.";
+                else bDiv.innerText = "Bordeaux is a city of elegance. Ask me about its UNESCO heritage or food!";
+            } else if (q.includes("hello") || q.includes("bonjour")) {
+                bDiv.innerText = "Bonjour! I am your guide. Which city would you like to explore: Lyon, Nice, Marseille, or Bordeaux?";
+            } else {
+                bDiv.innerText = "I'm not quite sure. Try asking: 'What is the best time to visit Nice?' or 'Famous food in Lyon?'";
+            }
+            l.appendChild(bDiv); l.scrollTop = l.scrollHeight;
+        }, 800);
+    }
+
     function updateParisTime() {
-        const options = {
-            timeZone: 'Europe/Paris',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-        };
-        const formatter = new Intl.DateTimeFormat('en-GB', options);
-        const timeString = formatter.format(new Date());
-        // Set to real-time current temperature: 22°C
+        const timeString = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date());
         document.getElementById('weather').innerText = `🇫🇷 Paris: ${timeString} | 22°C`;
     }
-    setInterval(updateParisTime, 1000);
-    updateParisTime();
+    setInterval(updateParisTime, 1000); updateParisTime();
 
-    // 2. Map Toggle
-    function toggleMap() {
-        const overlay = document.getElementById('map-overlay');
-        overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
-    }
-
-    // 3. Flashcard & Passport System
+    function toggleChat() { const b = document.getElementById('chat-box'); b.style.display = (b.style.display==='flex')?'none':'flex'; }
+    function toggleMap() { const o = document.getElementById('map-overlay'); o.style.display = (o.style.display==='flex')?'none':'flex'; }
+    function togglePassport() { document.getElementById('passport-panel').classList.toggle('open'); }
     function showFlashcard(title, fact, cityId) {
-        document.getElementById('card-title').innerText = title;
-        document.getElementById('card-fact').innerHTML = fact;
+        document.getElementById('card-title').innerText = title; document.getElementById('card-fact').innerHTML = fact;
         document.getElementById('flashcard-overlay').style.display = 'flex';
-        
-        if(cityId) {
-            document.getElementById('stamp-' + cityId).classList.add('collected');
-        }
-
-        setTimeout(() => {
-            document.getElementById('flashcard').classList.add('active');
-        }, 10);
+        if(cityId) document.getElementById('stamp-' + cityId).classList.add('collected');
+        setTimeout(() => document.getElementById('flashcard').classList.add('active'), 10);
     }
+    function closeFlashcard() { document.getElementById('flashcard').classList.remove('active'); setTimeout(() => { document.getElementById('flashcard-overlay').style.display = 'none'; }, 300); }
 
-    function closeFlashcard() {
-        document.getElementById('flashcard').classList.remove('active');
-        setTimeout(() => {
-            document.getElementById('flashcard-overlay').style.display = 'none';
-        }, 300);
-    }
-
-    function togglePassport() {
-        document.getElementById('passport-panel').classList.toggle('open');
-    }
-
-    // 4. Scroll Reveal Animations
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
+    document.querySelectorAll('.city').forEach(city => observer.observe(city));
+    document.querySelectorAll('.city').forEach(city => observer.observe(city));
 
-    document.querySelectorAll('.city').forEach(city => {
-        observer.observe(city);
-    });
+let currentLang = "en";
+
+function toggleLanguage() {
+    const button = document.getElementById("lang-toggle");
+
+    const interval = setInterval(() => {
+        const combo = document.querySelector(".goog-te-combo");
+
+        if (combo) {
+            clearInterval(interval);
+
+            if (currentLang === "en") {
+                combo.value = "fr";
+                button.innerText = "EN";
+                currentLang = "fr";
+            } else {
+                combo.value = "en";
+                button.innerText = "FR";
+                currentLang = "en";
+            }
+
+            combo.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+    }, 300);
+}
 </script>
 
 </body>
